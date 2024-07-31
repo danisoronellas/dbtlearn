@@ -1,0 +1,92 @@
+version: 2
+
+models:
+  - name: src_hosts
+    description: "Staging hosts"
+    columns:
+      - name: host_id
+        description: "host id"
+        tests:
+          - unique
+          - not_null
+      - name: host_name
+        description: "host name"
+        tests:
+          - not_null
+      - name: is_superhost
+        description: "Bool is superhost or not"
+        tests:
+          - not_null
+      - name: created_at
+        description: "created at"
+        tests:
+          - not_null
+      - name: updated_at
+        description: "updated at"
+        tests:
+          - not_null
+  - name: src_listings
+    description: "Staging Listings"
+    columns:
+      - name: listing_id
+        description: "listing id"
+        tests:
+          - unique
+          - not_null
+      - name: listing_name
+        description: "listing name"
+        tests:
+          - not_null
+      - name: listing_url
+        description: "listing url"
+        tests:
+          - not_null
+      - name: room_type
+        description: "room type"
+        tests:
+          - not_null
+      - name: minimum_nights
+        description: "minimum nights"
+        tests:
+          - not_null
+      - name: host_id
+        description: "host id"
+        tests:
+          - unique
+          - not_null
+      - name: price_str
+        description: "price in string format"
+        tests:
+          - not_null
+      - name: created_at
+        description: "created at"
+        tests:
+          - not_null
+      - name: updated_at
+        description: "updated at"
+        tests:
+          - not_null
+  - name: src_reviews
+    description: "Staging Reviews"
+    columns:
+      - name: listing_id
+        description: "listing id"
+        tests:
+          - unique
+          - not_null
+      - name: review_date
+        description: "review date"
+        tests:
+          - not_null
+      - name: reviewer_name
+        description: "reviewer name"
+        tests:
+          - not_null
+      - name: review_text
+        description: "reviewer text"
+        tests:
+          - not_null
+      - name: review_sentiment
+        description: "reviewer sentiment"
+        tests:
+          - not_null
