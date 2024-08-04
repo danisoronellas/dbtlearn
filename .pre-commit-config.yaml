@@ -2,6 +2,7 @@ repos:
     - repo: https://github.com/dbt-checkpoint/dbt-checkpoint
       rev: v2.0.3
       hooks:
+      - id: dbt-compile
       - id: dbt-parse
       - id: dbt-docs-generate
         args: ["--cmd-flags", "++no-compile"]
