@@ -1,0 +1,32 @@
+name: DBT run
+
+on:
+  push:
+    branches:
+      - main
+
+env:
+  DBT_SF_USER: {{secrets.DBT_SF_USER}}
+  DBT_SF_PASSWORD: {{secrets.DBT_SF_PASSWORD}}
+  DBT_SF_ACCOUNT: {{secrets.DBT_SF_ACCOUNT}}
+  DBT_SF_DATABASE: {{secrets.DBT_SF_DATABASE}}
+  DBT_SF_WAREHOUSE: {{secrets.DBT_SF_WAREHOUSE}}
+
+jobs:
+  dbt-run:
+    name: Run DBT
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+
+    - name: test DBT models
+      uses: mwhitaker/dbt-action@master
+      with:
+        dbt_command: "dbt test --profiles-dir ."
+
+    - name: Run DBT
+      uses: mwhitaker/dbt-action@master
+      with:
+        dbt_command: "dbt run --profiles-dir ."

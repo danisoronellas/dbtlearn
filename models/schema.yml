@@ -45,6 +45,13 @@ models:
         description: "room type"
         tests:
           - not_null
+          - accepted_values:
+              values: [
+                'Entire home/apt',
+                'Private room',
+                'Shared room',
+                'Hotel room'
+              ]
       - name: minimum_nights
         description: "minimum nights"
         tests:
@@ -180,6 +187,9 @@ models:
         description: "room type"
         tests:
           - not_null
+          - relationships:
+              to: ref('dim_listings_cleansed')
+              field: room_type
       - name: minimum_nights
         description: "minimum nights"
         tests:

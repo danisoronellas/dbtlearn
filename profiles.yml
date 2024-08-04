@@ -1,0 +1,13 @@
+dbtlearn:
+  target: dev
+  outputs:
+    dev:
+      account: "{{ env_var('DBT_SF_ACCOUNT') }}"
+      database: "{{ env_var('DBT_SF_DATABASE') }}"
+      password: "{{ env_var('DBT_SF_PASSWORD') }}"
+      role: transform
+      schema: DEV
+      threads: 1
+      type: snowflake
+      user: "{{ env_var('DBT_SF_USER') }}"
+      warehouse: "{{ env_var('DBT_SF_WAREHOUSE') }}"
