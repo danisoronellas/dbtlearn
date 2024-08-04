@@ -23,6 +23,7 @@ models:
         description: "updated at"
         tests:
           - not_null
+
   - name: src_listings
     description: "Staging Listings"
     columns:
@@ -217,5 +218,34 @@ models:
           - not_null
       - name: updated_at
         description: "updated at"
+        tests:
+          - not_null
+
+  - name: mart_fullmoon_reviews
+    description: "Mart with reviews and full moon coincidence"
+    columns:
+      - name: listing_id
+        description: "listing id"
+        tests:
+          - unique
+          - not_null
+      - name: review_date
+        description: "review date"
+        tests:
+          - not_null
+      - name: reviewer_name
+        description: "reviewer name"
+        tests:
+          - not_null
+      - name: review_text
+        description: "reviewer text"
+        tests:
+          - not_null
+      - name: review_sentiment
+        description: "reviewer sentiment"
+        tests:
+          - not_null
+      - name: is_full_moon
+        description: "boolean if review is after full moon"
         tests:
           - not_null
