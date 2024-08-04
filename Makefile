@@ -1,7 +1,7 @@
 include .env
 export
 
-.PHONY: run test
+.PHONY: dbt-run dbt-test
 
 dbt-run:
 	dbt run --profiles-dir ./
